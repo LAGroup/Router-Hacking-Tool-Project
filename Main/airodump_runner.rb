@@ -1,4 +1,3 @@
-require 'io/console'
 #Runs airodump-ng as a subprocess and stops it after N seconds
 
 def airodump_runner
