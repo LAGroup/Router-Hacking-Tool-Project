@@ -6,6 +6,7 @@ attr_accessor :bssid, :beacons, :data, :channel, :power, :privacy, :essid, :id
 	
 	def initialize 
 	
+<<<<<<< HEAD
 		self.bssid = ""
 		self.beacons = 0
 		self.data = 0
@@ -63,3 +64,19 @@ attr_accessor :bssid, :beacons, :data, :channel, :power, :privacy, :essid, :id
 	
 end
 
+=======
+		@bssid = ""
+		@beacons = 0
+		@data = 0
+		@channel = 0
+		@power = 0
+		@privacy = ""
+		@essid = ""	
+		@id = 0
+	
+	end
+
+end
+
+
+>>>>>>> c48210011c8ecf6b8ab7a51ac00056be02099a8c
