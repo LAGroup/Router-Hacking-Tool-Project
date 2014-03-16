@@ -2,7 +2,9 @@
 
 def monitoring_starter interfaces = Array.new
 
-	puts "\nChoose which wlan to use:"
+	puts "RHT v1.0.0"
+
+	puts "\nChoose which wireless-lan card to use:"
 	puts "-------------------------"
 	
 	interfaces.each do |el|
