@@ -9,7 +9,7 @@ def airodump_runner arg = 0, r = Router.new
 		sleep(n)
 		Process.kill("INT", pid)
 	elsif arg == 1
-		p = IO.popen("sudo airodump-ng -i mon0 --bssid #{r.get("bssid")} -c #{r.get("channel")} -w focus --output-format csv --ivs")
+		p = IO.popen("sudo airodump-ng -i mon0 --bssid #{r.bssid} -c #{r.channel} -w focus --output-format csv --ivs")
 		pid = p.pid
 		n = 20
 		sleep(n)
