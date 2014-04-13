@@ -2,7 +2,7 @@
 
 class Station
 
-attr_accessor :stmac, :bssid, :channel
+attr_reader :stmac, :bssid, :channel
 	
 	def initialize 
 		stmac = ""
@@ -10,30 +10,16 @@ attr_accessor :stmac, :bssid, :channel
 		channel = 0
 	end
 	
-	def get arg = ""
-		case arg
-		
-		when "bssid"
-			return self.bssid
-		when "stmac"
-			return self.stmac
-		when "channel"
-			return self.channel
-		else
-			return nil
-		end
-	end
-	
 	def set_mac mac = ""
-		self.stmac = mac
+		@stmac = mac
 	end
 	
 	def set_bssid bssid = ""
-		self.bssid = bssid
+		@bssid = bssid
 	end
 	
 	def set_channel channel = 0
-		self.channel = channel
+		@channel = channel
 	end
 	
 	def print arg = "Nothing to print"

