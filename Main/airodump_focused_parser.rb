@@ -40,11 +40,11 @@ def airodump_focused_parser
 		if step == 1
 			channel = row[3]
 		else
-			r = Station.new
-			r.set_mac(row[0])
-			r.set_bssid(row[5])
-			r.set_channel(channel)
-			stations << r
+			s = Station.new
+			s.set_mac(row[0])
+			s.set_bssid(row[5])
+			s.set_channel(channel)
+			stations << s
 		end
 		
 		step += 1				
