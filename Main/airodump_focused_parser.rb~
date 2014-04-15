@@ -51,8 +51,6 @@ def airodump_focused_parser
 				
 	end
 	
-	#system("sudo rm -f focus-01.csv")
-	#system("sudo rm -f focus_out.csv")
 	system("clear")
 	
 	return stations

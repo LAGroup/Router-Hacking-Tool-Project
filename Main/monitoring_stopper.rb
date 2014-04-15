@@ -3,7 +3,9 @@
 def monitoring_stopper interfaces = Array.new
 
 	interfaces.each do |el|
-		`sudo airmon-ng stop #{el} > mon_stopper.txt`
+		if !system("sudo airmon-ng stop #{el} > mon_stopper.txt")
+				abort("\nMonitoring mode could not be stopped! (#{el})")
+		end
 	end
 
 end
