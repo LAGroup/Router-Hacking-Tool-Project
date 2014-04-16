@@ -25,8 +25,8 @@ monitoring_starter(airmon_parser)
 # Starts mon0 for the chosen wlan
 puts "\nMonitoring mode successfully started"
 
-macchanger()
-# Offers the user the change his MAC address for this run of the program
+#macchanger()
+# Offers the user to temporary change his MAC address 
 
 airodump_focus(airodump_parser)
 # Focuses airodump on the chosen router
