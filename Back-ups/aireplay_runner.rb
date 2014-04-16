@@ -46,8 +46,7 @@ def aireplay_runner stations = Array.new
 		if a =~ /no data packets/
 			again = true
 		end
-		
-		counter += 1
+
 
 	end while again
 	
