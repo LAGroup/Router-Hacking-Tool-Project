@@ -28,7 +28,7 @@ def airodump_parser
 	routers = Array.new
 	CSV.foreach("scan_out.csv") do |row|
 		
-		if row[13] != nil || row[13] =~ /./ 
+		if row[13] != nil && row[13] =~ /\S/
 			r = Router.new
 			r.set_values(row[0], row[9], row[10], row[3], row[8], row[5], row[13])
 		
