@@ -14,7 +14,8 @@ def aireplay_runner stations = Array.new
 	
 		if counter == 10
 			cleaner()
-			abort("Hanshake timed out! (#{counter} tries)")
+			puts "Hanshake timed out! (#{counter} tries)"
+			return -1
 		end
 	
 		again = false	

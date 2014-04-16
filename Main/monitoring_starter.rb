@@ -3,7 +3,7 @@
 
 def monitoring_starter interfaces = Array.new
 
-	puts "RHT v1.0.0"
+	puts "RHT v1.2.4"
 
 	puts "\nChoose which wireless-lan card to use:"
 	puts "-------------------------"
