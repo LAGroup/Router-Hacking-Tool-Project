@@ -38,7 +38,7 @@ monitoring_stopper(airmon_parser)
 # Stops all mons and wlans
 
 cleaner()
-# Deletes all iv-s and txt-s
+# Deletes all iv-s, txt-s, csv-s, that are left behind
 
 puts "\nMonitoring mode successfully stopped"
 puts "Bye bye :)"

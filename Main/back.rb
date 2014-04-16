@@ -17,6 +17,8 @@ again = true
 while again do
 	
 	again = false	
+	cleaner()
+	# Deletes all iv-s and txt-s
 	
 	p = IO.popen("sudo airodump-ng mon0 --bssid 00:1D:7E:FB:38:80 -c 11 -w replay --ivs")
 
