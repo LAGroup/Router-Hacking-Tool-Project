@@ -9,8 +9,12 @@ def aireplay_runner stations = Array.new
 		
 	end
 	
-
+	counter = 1
 	begin
+	
+		if counter == 10
+			abort("Hanshake timed out! (#{counter} tries)")
+		end
 	
 		again = false	
 		cleaner()
@@ -47,6 +51,8 @@ def aireplay_runner stations = Array.new
 		if a =~ /no data packets/
 			again = true
 		end
+		
+		counter += 1
 
 	end while again
 	
