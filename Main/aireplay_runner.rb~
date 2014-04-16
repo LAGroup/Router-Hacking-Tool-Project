@@ -9,10 +9,8 @@ def aireplay_runner stations = Array.new
 		
 	end
 	
-	
-	again = true
 
-	while again do
+	begin
 	
 		again = false	
 		cleaner()
@@ -50,7 +48,7 @@ def aireplay_runner stations = Array.new
 			again = true
 		end
 
-	end
+	end while again
 	
 end
 

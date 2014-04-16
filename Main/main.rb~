@@ -9,6 +9,9 @@ require_relative 'aircrack_runner'
 require_relative 'cleaner'
 require_relative 'monitoring_stopper'
 require_relative 'router'
+require_relative 'macchanger'
+require_relative 'macfixer'
+require_relative 'mac_parser'
 #Main file
 
 if system("cls")
@@ -21,22 +24,28 @@ cleaner()
 monitoring_stopper(airmon_parser)
 # ^ stops all mons and wlans, ensuring mon0 will be free
 
-monitoring_starter(airmon_parser)
-# Starts mon0 for the chosen wlan
+data = macchanger(monitoring_starter(airmon_parser))
+# Offers the user to temporary change his MAC address
+wlan = data[0]
+new_mac = data[1]
+changed_mac = false
+if new_mac != 0
+	changed_mac = true
+end
 puts "\nMonitoring mode successfully started"
-
-#macchanger()
-# Offers the user to temporary change his MAC address 
 
 airodump_focus(airodump_parser)
 # Focuses airodump on the chosen router
 
-aireplay_runner(airodump_focused_parser)
+aireplay_runner(airodump_focused_parser(changed_mac, new_mac))
 # Runs aireplay on one of the selected router's stations,
 # also runs aircrack on the ivs file
 
 #aircrack_runner()
 # Runs aircrack on the ivs file
+
+macfixer(wlan, changed_mac)
+# Return the old MAC Address
 
 monitoring_stopper(airmon_parser)
 # Stops all mons and wlans
