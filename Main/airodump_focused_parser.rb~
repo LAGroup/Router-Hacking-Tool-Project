@@ -3,7 +3,7 @@ require_relative 'station'
 require_relative 'airodump_runner'
 #Parses airodump-ng's focused output (csv file)
 
-def airodump_focused_parser changed_mac = false, new_mac = "00:00:00:00:00:00"
+def airodump_focused_parser 
 
 	file = File.open("focus-01.csv")
 	file.chmod( 0777 )
@@ -41,13 +41,7 @@ def airodump_focused_parser changed_mac = false, new_mac = "00:00:00:00:00:00"
 			channel = row[3]
 		else
 			s = Station.new
-			if changed_mac
-				s.set_mac(new_mac.c)
-			else
-				s.set_mac(row[0])
-			end
-			puts "\n Station MAC: #{s.stmac}"
-			puts
+			s.set_mac(row[0])
 			s.set_bssid(row[5])
 			s.set_channel(channel)
 			stations << s

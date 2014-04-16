@@ -27,17 +27,13 @@ monitoring_stopper(airmon_parser)
 data = macchanger(monitoring_starter(airmon_parser))
 # Offers the user to temporary change his MAC address
 wlan = data[0]
-new_mac = data[1]
-changed_mac = false
-if new_mac != 0
-	changed_mac = true
-end
+changed_mac = data[1]
 puts "\nMonitoring mode successfully started"
 
 airodump_focus(airodump_parser)
 # Focuses airodump on the chosen router
 
-aireplay_runner(airodump_focused_parser(changed_mac, new_mac))
+aireplay_runner(airodump_focused_parser)
 # Runs aireplay on one of the selected router's stations,
 # also runs aircrack on the ivs file
 

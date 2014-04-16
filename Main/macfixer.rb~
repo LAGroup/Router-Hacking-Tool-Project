@@ -6,7 +6,7 @@ def macfixer wlan, changed_mac
 			if !system("sudo macchanger wlan0 -p > macfix.csv")
 				puts "Failed to return to old MAC address!"
 			elsif system("sudo ifconfig #{wlan} up")
-				puts "MAC address was successfully returned back to normal!"
+				puts "\nMAC address was successfully returned back to normal!"
 			end
 		end
 	end

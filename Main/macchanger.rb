@@ -3,6 +3,7 @@ require_relative 'mac_parser'
 def macchanger wlan = "wlan0"
 	
 	new_mac = 0
+	changed_mac = false
 	
 	puts "Would you like to use a macchanger? (y/n)"
 	input = gets.chomp
@@ -12,6 +13,7 @@ def macchanger wlan = "wlan0"
 				puts "Failed to change MAC address!"
 			else
 				new_mac = mac_parser
+				changed_mac = true
 			end
 			if system("sudo ifconfig #{wlan} up")
 				puts "MAC address was successfully changed!"
@@ -20,7 +22,7 @@ def macchanger wlan = "wlan0"
 		end
 	end	
 
-	return [wlan, new_mac]
+	return [wlan, changed_mac]
 
 end
 
