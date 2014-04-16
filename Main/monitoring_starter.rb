@@ -21,7 +21,9 @@ def monitoring_starter interfaces = Array.new
 	input = gets.chomp
 	puts
 	if input =~ /wlan[0-9]/
-		`sudo airmon-ng start #{input} > mon_starter.txt`
+		if !system("sudo airmon-ng start #{input} > mon_starter.txt")
+			abort("Couldn't start monitoring mode for #{input}!")
+		end
 		return input
 	else
 		abort("Error: No such wlan found!")

