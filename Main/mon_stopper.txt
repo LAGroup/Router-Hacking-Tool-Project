@@ -1,0 +1,8 @@
+
+
+Interface	Chipset		Driver
+
+wlan1		RTL8187 	rtl8187 - [phy5]
+wlan0		Unknown 	brcmsmac - [phy0]
+				(monitor mode disabled)
+
