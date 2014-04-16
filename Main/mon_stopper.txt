@@ -1,0 +1,7 @@
+
+
+Interface	Chipset		Driver
+
+wlan0		Unknown 	brcmsmac - [phy0]
+				(monitor mode disabled)
+
