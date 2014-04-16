@@ -43,11 +43,7 @@ while again do
 
 	a = `sudo aircrack-ng -w pass.lst replay-01.ivs`
 
-	if !system("sudo aircrack-ng -w pass.lst replay-01.ivs")
-		monitoring_stopper()
-		cleaner()
-		abort("\nCracker fail!")
-	elsif a =~ /no data packets/
+	if a =~ /no data packets/
 		again = true
 	end
 

