@@ -40,7 +40,7 @@ aireplay_runner(airodump_focused_parser)
 #aircrack_runner()
 # Runs aircrack on the ivs file
 
-macfixer(wlan, changed_mac)
+#macfixer(wlan, changed_mac)
 # Return the old MAC Address
 
 monitoring_stopper(airmon_parser)

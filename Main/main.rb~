@@ -27,6 +27,7 @@ monitoring_stopper(airmon_parser)
 data = macchanger(monitoring_starter(airmon_parser))
 # Offers the user to temporary change his MAC address
 wlan = data[0]
+changed_mac = data[1]
 puts "\nMonitoring mode successfully started"
 
 airodump_focus(airodump_parser)
@@ -39,7 +40,7 @@ aireplay_runner(airodump_focused_parser)
 #aircrack_runner()
 # Runs aircrack on the ivs file
 
-macfixer(wlan)
+#macfixer(wlan, changed_mac)
 # Return the old MAC Address
 
 monitoring_stopper(airmon_parser)
