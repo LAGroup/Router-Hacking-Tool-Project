@@ -25,20 +25,24 @@ monitoring_starter(airmon_parser)
 # Starts mon0 for the chosen wlan
 puts "\nMonitoring mode successfully started"
 
+macchanger()
+# Offers the user the change his MAC address for this run of the program
+
 airodump_focus(airodump_parser)
 # Focuses airodump on the chosen router
 
 aireplay_runner(airodump_focused_parser)
-# Runs aireplay on one of the selected router's stations
+# Runs aireplay on one of the selected router's stations,
+# also runs aircrack on the ivs file
 
-aircrack_runner()
+#aircrack_runner()
 # Runs aircrack on the ivs file
 
 monitoring_stopper(airmon_parser)
 # Stops all mons and wlans
 
 cleaner()
-# Deletes all iv-s, txt-s, csv-s, that are left behind
+# Deletes all iv-s, txt-s, csv-s, that are left behind by the program
 
 puts "\nMonitoring mode successfully stopped"
 puts "Bye bye :)"

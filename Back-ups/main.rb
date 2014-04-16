@@ -32,10 +32,9 @@ airodump_focus(airodump_parser)
 # Focuses airodump on the chosen router
 
 aireplay_runner(airodump_focused_parser)
-# Runs aireplay on one of the selected router's stations,
-# also runs aircrack on the ivs file
+# Runs aireplay on one of the selected router's stations
 
-#aircrack_runner()
+aircrack_runner()
 # Runs aircrack on the ivs file
 
 monitoring_stopper(airmon_parser)
