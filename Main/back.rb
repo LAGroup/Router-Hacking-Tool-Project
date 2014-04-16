@@ -59,4 +59,3 @@ monitoring_stopper(airmon_parser)
 cleaner()
 # Deletes all iv-s and txt-s
 
-
