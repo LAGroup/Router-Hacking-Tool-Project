@@ -17,7 +17,7 @@ def macchanger wlan = "wlan0"
 			end
 			if system("sudo ifconfig #{wlan} up")
 				puts "MAC address was successfully changed!"
-				system("read -p 'Press any key to continue...'")
+				system("read -p \"Press any key to continue...\"")
 			end
 		end
 	end	

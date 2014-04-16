@@ -1,0 +1,7 @@
+
+
+Interface	Chipset		Driver
+
+mon0		Unknown 	brcmsmac - [phy0] (removed)
+wlan0		Unknown 	brcmsmac - [phy0]
+
