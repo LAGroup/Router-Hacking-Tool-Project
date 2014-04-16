@@ -11,6 +11,13 @@ require_relative 'monitoring_stopper'
 require_relative 'router'
 #Main file
 
+if system("cls")
+	abort("RHT can run only on Linux BackTrack. Sorry, mate.")
+end
+
+cleaner()
+# Deletes trash files, that were left from previous runs
+
 monitoring_stopper(airmon_parser)
 # ^ stops all mons and wlans, ensuring mon0 will be free
 
