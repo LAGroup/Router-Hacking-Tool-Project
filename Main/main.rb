@@ -10,7 +10,7 @@ require_relative 'cleaner'
 require_relative 'monitoring_stopper'
 require_relative 'router'
 require_relative 'macchanger'
-require_relative 'macfixer'
+#require_relative 'macfixer'
 require_relative 'mac_parser'
 #Main file
 
