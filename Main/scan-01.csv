@@ -1,0 +1,8 @@
+
+BSSID, First time seen, Last time seen, channel, Speed, Privacy, Cipher, Authentication, Power, # beacons, # IV, LAN IP, ID-length, ESSID, Key
+B0:48:7A:F3:EA:D4, 2014-05-05 17:52:01, 2014-05-05 17:52:01,  4,  54, WPA2WPA , CCMP,PSK, -63,        0,        0,   0.  0.  0.  0,  14, TP-LINK_F3EAD4, 
+00:1D:7E:FB:38:80, 2014-05-05 17:51:59, 2014-05-05 17:52:13, 11,  54, WPA2WPA , CCMP TKIP,PSK, -33,       43,       17,   0.  0.  0.  0,   7, linksys, 
+
+Station MAC, First time seen, Last time seen, Power, # packets, BSSID, Probed ESSIDs
+E4:4F:29:10:61:2F, 2014-05-05 17:51:59, 2014-05-05 17:52:13,   0,       33, 00:1D:7E:FB:38:80, linksys
+

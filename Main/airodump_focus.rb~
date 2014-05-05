@@ -24,7 +24,7 @@ def airodump_focus routers = Array.new
 	input = gets.chomp
 	input = input.to_i
 
-	if input > 0 && input < routers.length
+	if input > 0 && input <= routers.length
 		routers.each do |el|
 			if el.id.to_i == input
 				airodump_runner(1,el)

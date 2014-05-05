@@ -1,0 +1,6 @@
+
+BSSID, First time seen, Last time seen, channel, Speed, Privacy, Cipher, Authentication, Power, # beacons, # IV, LAN IP, ID-length, ESSID, Key
+00:1D:7E:FB:38:80, 2014-05-05 17:52:16, 2014-05-05 17:52:31, 11,  54, WPA2WPA , CCMP TKIP,PSK, -11,      133,       32,   0.  0.  0.  0,   7, linksys, 
+
+Station MAC, First time seen, Last time seen, Power, # packets, BSSID, Probed ESSIDs
+
