@@ -1,7 +1,0 @@
-
-
-Interface	Chipset		Driver
-
-mon0		Realtek RTL8187L	rtl8187 - [phy0] (removed)
-wlan0		Realtek RTL8187L	rtl8187 - [phy0]
-
