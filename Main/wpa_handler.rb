@@ -50,7 +50,7 @@ def wpa_handler stations = Array.new
 
 		input = 'n'
 		if !found 
-			puts "Key could not be found, sorry! T.T" 
+			puts "Key could not be found in dictionary, sorry! T.T" 
 			puts "Do you want to try again? (y/n)"
 			input = gets.chomp
 		end

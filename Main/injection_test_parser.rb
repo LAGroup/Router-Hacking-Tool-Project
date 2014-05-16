@@ -48,31 +48,13 @@ def injection_test_parser interface = "wlan0"
 		monitoring_stopper(airmon_parser)
 	end
 	
-	puts 
+	#puts 
 	puts routers.length
-	puts routers
+	#puts routers
+	
+	start(interface, 0, 1)
 	puts
 		
 	return routers
-
-end
-
-#injection_test_parser
-
-def supports_injection?
-
-	inj_works = false
-	
-	system("aireplay-ng -9 mon0 > inj_test.txt")
-	
-	file = File.foreach("inj_test.txt") do |line| 
-	
-		if line =~ /Injection is working!/
-			inj_works = true
-		end
-		
-	end
-	
-	return inj_works
 end
 

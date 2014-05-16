@@ -9,6 +9,8 @@ def airodump_focus routers = Array.new
     puts "We suggest to set your terminal to fullscreen."
     puts "Press Enter when ready..."
     gets.chomp
+    
+    system("clear")
 	puts "Routers with higher data traffic, lower power or those who "
 	puts "answered to all probe requests are easier to crack." 
     puts "\nChoose which router to attack:"
@@ -18,7 +20,7 @@ def airodump_focus routers = Array.new
     routers.each do |el|
         if el.privacy =~ /WPA/ || el.privacy =~ /WEP/
             el.id = i
-            puts "#{el.id}) #{el.essid}   ->   #{el.privacy};  Power: #{el.power*(-1)};  Probe requests answered: #{el.probes}"
+            (el.probes != "") ? (puts "#{el.id}) #{el.essid}   ->   #{el.privacy};  Power: #{el.power*(-1)};  Probe requests answered: #{el.probes}") : (puts "#{el.id}) #{el.essid}   ->   #{el.privacy};  Power: #{el.power*(-1)}")
             i += 1
         end
     end

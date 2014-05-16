@@ -16,8 +16,6 @@ end
 a = Abc.new
 puts a.var
 puts a.var = 5
-a.var = 7
+a.var = 7*(-1)
 puts a.var
-
-
 

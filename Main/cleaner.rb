@@ -6,7 +6,7 @@ def cleaner disp_mes = 0
 		abort("Error deleting trash files!")
 	else
 		if disp_mes == 1
-			puts "\nUnnecessary files successfully deleted" 
+			puts "Unnecessary files successfully deleted." 
 		end
 	end
 end
