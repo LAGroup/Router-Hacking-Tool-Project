@@ -1,5 +1,5 @@
 require 'timeout'
-require_relative 'router'
+require './router.rb'
 
 def wep_handler r = Router.new
 	

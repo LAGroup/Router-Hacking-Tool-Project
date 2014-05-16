@@ -1,6 +1,6 @@
 require 'timeout'
-require_relative 'monitoring_stopper'
-require_relative 'cleaner'
+require './monitoring_stopper.rb'
+require './cleaner.rb'
 #Hanshake capture
 
 def wpa_handler stations = Array.new

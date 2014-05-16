@@ -1,6 +1,6 @@
 require 'csv'
-require_relative 'station'
-require_relative 'airodump_runner'
+require './station.rb'
+require './airodump_runner.rb'
 #Parses airodump-ng's focused output (csv file)
 
 def airodump_focused_parser 

@@ -1,3 +1,0 @@
-if !system("sudo ruby Main/main.rb")
-	abort("\nFATAL ERROR: Main program could not run properly!")
-end

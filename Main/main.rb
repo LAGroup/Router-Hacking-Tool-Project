@@ -1,32 +1,31 @@
 require 'csv'
-require_relative 'airmon_parser'
-require_relative 'monitoring_starter'
-require_relative 'airodump_parser'
-require_relative 'airodump_focus'
-require_relative 'airodump_focused_parser'
-require_relative 'wpa_handler'
-require_relative 'cleaner'
-require_relative 'monitoring_stopper'
-require_relative 'router'
-require_relative 'macchanger'
-require_relative 'wep_handler'
+require './stop_n_clean.rb'
+require './airmon_parser.rb'
+require './monitoring_starter.rb'
+require './macchanger.rb'
+require './airodump_parser.rb'
+require './airodump_focus.rb'
+require './router.rb'
+require './airodump_focused_parser.rb'
+require './wpa_handler.rb'
+require './wep_handler.rb'
+
 #Main file
+puts "RHT v1.2.4"
+puts 
 
 if system("cls")
 	abort("RHT can run only on Linux BackTrack. Sorry, mate.")
 end
 
-cleaner()
-# Deletes trash files, that were left from previous runs
-
-monitoring_stopper(airmon_parser)
-# ^ stops all mons and wlans, ensuring mon0 will be free
+stop_n_clean(0)
+# Stops all mons and wlans, ensuring mon0 will be free and
+# deletes trash files, that were left from previous runs
 
 data = macchanger(monitoring_starter(airmon_parser))
 # Offers the user to temporary change his MAC address
 wlan = data[0]
 changed_mac = data[1]
-puts "\nMonitoring mode successfully started"
 
 router = airodump_focus(airodump_parser)
 # Focuses airodump on the chosen router; returns encryption
@@ -39,18 +38,7 @@ else
     # also runs aircrack on the ivs file
 end
 
-#aircrack_runner()
-# Runs aircrack on the ivs file
+stop_n_clean(1)
 
-#macfixer(wlan, changed_mac)
-# Return the old MAC Address
-
-monitoring_stopper(airmon_parser)
-# Stops all mons and wlans
-
-cleaner()
-# Deletes all iv-s, txt-s, csv-s, cap-s, etc that are left behind by the program
-
-puts "\nMonitoring mode successfully stopped"
 puts "Bye bye :)"
 

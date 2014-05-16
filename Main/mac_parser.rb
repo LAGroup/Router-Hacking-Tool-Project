@@ -1,5 +1,6 @@
 require 'csv'
 # Parses the output of the macchanger command and retrns the new MAC
+
 def mac_parser
 
 	CSV.foreach("mac.csv") do |row|

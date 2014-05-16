@@ -1,5 +1,5 @@
-require_relative 'router'
-require_relative 'airodump_runner'
+require './router.rb'
+require './airodump_runner.rb'
 #Focuses airodump-ng's scan on one specific router
  
  
