@@ -1,0 +1,19 @@
+
+
+Found 4 processes that could cause trouble.
+If airodump-ng, aireplay-ng or airtun-ng stops working after
+a short period of time, you may want to kill (some of) them!
+-e 
+PID	Name
+2504	NetworkManager
+2816	dhclient
+4383	wpa_supplicant
+6808	dhclient
+Process with PID 6808 (dhclient) is running on interface wlan0
+
+
+Interface	Chipset		Driver
+
+wlan0		Realtek RTL8187L	rtl8187 - [phy1]
+				(monitor mode enabled on mon0)
+

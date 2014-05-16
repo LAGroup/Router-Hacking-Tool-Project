@@ -19,22 +19,21 @@ def injection_test_parser interface = "wlan0"
 
 		file = File.foreach("inj_test.txt") do |line| 
 	
-			if line =~ /.\d\/30:\s.\d/
-				possibility << line	
+			if line =~ /\d\d\s+\d+\/30:\s+\d/
+				possibility << line.split(/\d\d:\d\d:\d\d\s+/)[1].chomp
 			end	
 
 			if line =~ /- channel: #{channel}/
 				essid << line.split('\'')[1]
 			end
 
-		 end
+		end
 
-		 for i in 0..possibility.length-1
-		 	if possibility[i].length < 25 
-		 		poss_new << possibility[i][10..20]
-		 		
-		 	end
-		 end
+		for i in 0..possibility.length-1
+			if possibility[i].length < 25 
+				poss_new << possibility[i]
+			end
+		end
 	
 		for i in 0..essid.length - 1
 		
@@ -49,7 +48,7 @@ def injection_test_parser interface = "wlan0"
 	end
 	
 	#puts 
-	puts routers.length
+	#puts routers.length
 	#puts routers
 	
 	start(interface, 0, 1)

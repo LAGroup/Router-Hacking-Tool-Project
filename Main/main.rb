@@ -60,7 +60,7 @@ if supports_injection?
 	
 	airodump_parser()
 	
-	router = airodump_focus(router_initialization(ap_probes))
+	router = airodump_focus(router_init(ap_probes))
 	# Focuses airodump on the chosen router; returns encryption
 	 
 	if router.privacy =~ /WEP/

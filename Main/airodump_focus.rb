@@ -12,7 +12,7 @@ def airodump_focus routers = Array.new
     
     system("clear")
 	puts "Routers with higher data traffic, lower power or those who "
-	puts "answered to all probe requests are easier to crack." 
+	puts "answered to more probe requests are easier to crack." 
     puts "\nChoose which router to attack:"
     puts "---------------------------"
  
@@ -20,7 +20,7 @@ def airodump_focus routers = Array.new
     routers.each do |el|
         if el.privacy =~ /WPA/ || el.privacy =~ /WEP/
             el.id = i
-            (el.probes != "") ? (puts "#{el.id}) #{el.essid}   ->   #{el.privacy};  Power: #{el.power*(-1)};  Probe requests answered: #{el.probes}") : (puts "#{el.id}) #{el.essid}   ->   #{el.privacy};  Power: #{el.power*(-1)}")
+            (el.probes != "") ? (puts "#{el.id})  #{el.essid}  -->   Encryption: #{el.privacy};    Power: #{el.power*(-1)};    Probe requests answered: #{el.probes}") : (puts "#{el.id})  #{el.essid}  -->   #{el.privacy};    Power: #{el.power*(-1)}")
             i += 1
         end
     end
