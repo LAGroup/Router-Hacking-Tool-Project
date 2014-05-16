@@ -6,8 +6,8 @@ require './cleaner.rb'
 def wpa_handler stations = Array.new
 	
 	if stations[0].nil?
-		abort("Error: No stations found")
-		
+		system("clear")
+		abort("Error: No stations found\n Note: There has to be clients using the router\n")
 	end
 	
 	# Loop
@@ -28,6 +28,7 @@ def wpa_handler stations = Array.new
 		end
 
 		if !system("sudo aircrack-ng -w pass.lst replay-01.ivs > crack_info.txt")
+			system("clear")
 			abort("\nCracker fail!")
 		end
 		

@@ -4,15 +4,21 @@ require './airodump_runner.rb'
  
  
 def airodump_focus routers = Array.new
-     
-    puts "\nChoose which router to crack:"
+    
+    puts "You can now choose which AP to attack."
+    puts "We suggest to set your terminal to fullscreen."
+    puts "Press Enter when ready..."
+    gets.chomp
+	puts "Routers with higher data traffic, lower power or those who "
+	puts "answered to all probe requests are easier to crack." 
+    puts "\nChoose which router to attack:"
     puts "---------------------------"
  
     i = 1
     routers.each do |el|
         if el.privacy =~ /WPA/ || el.privacy =~ /WEP/
-            el.set_id(i)
-            puts "#{el.id}) #{el.essid}   ->   #{el.privacy}"
+            el.id = i
+            puts "#{el.id}) #{el.essid}   ->   #{el.privacy};  Power: #{el.power*(-1)};  Probe requests answered: #{el.probes}"
             i += 1
         end
     end

@@ -2,16 +2,25 @@
 
 def monitoring_stopper interfaces = Array.new, disp_mes = 0
 
-	interfaces.each do |el|
-		if !system("sudo airmon-ng stop #{el}")
-			abort("\nMonitoring mode could not be stopped for #{el}!")
-		else
-			system("clear")
-			if disp_mes == 1
-				puts "\nMonitoring mode successfully stopped"
-			end
+	if interfaces.is_a? Array
+		interfaces.each do |el|
+			stop(el)
 		end
+	elsif interfaces.is_a? String
+		stop(interfaces)	
+	end
+	
+	puts "\nMonitoring mode successfully stopped." if disp_mes == 1
+end
+
+
+def stop interface
+
+	if !system("sudo airmon-ng stop #{interface}")
+		system("clear")
+		abort("\nMonitoring mode could not be stopped for #{interface}!")
+	else
+		system("clear")
 	end
 
 end
-

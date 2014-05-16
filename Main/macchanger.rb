@@ -22,5 +22,6 @@ def macchanger wlan = "wlan0"
 		end
 	end	
 
+	return wlan
 end
 
