@@ -1,7 +1,7 @@
 require 'csv'
-require './station.rb'
 require './airodump_runner.rb'
-#Parses airodump-ng's focused output (csv file)
+# Parses airodump-ng's focused output - csv file,  and makes 
+# a new, easier to read csv
 
 def airodump_focused_parser 
 
@@ -14,7 +14,7 @@ def airodump_focused_parser
 	station = false
 	channel_detect = false
 	File.foreach("focus-01.csv") do |line|
-	  if !(line.chomp.empty?) && (station == true || channel_detect == true)
+	  if !(line.chomp.empty?) && (station || channel_detect)
 	  	out.puts line 
 	  end
 	  channel_detect = false
@@ -28,32 +28,7 @@ def airodump_focused_parser
 	end
 
 	file.close
-	out.close
-	
-	# -------------------	
-	
-	channel = 0
-	step = 1
-	stations = Array.new
-	CSV.foreach("focus_out.csv") do |row|
-		
-		if step == 1
-			channel = row[3]
-		else
-			s = Station.new
-			s.set_mac(row[0])
-			s.set_bssid(row[5])
-			s.set_channel(channel)
-			stations << s
-		end
-		
-		step += 1				
-				
-	end
-	
-	system("clear")
-	
-	return stations
+	out.close	
 end
 
 

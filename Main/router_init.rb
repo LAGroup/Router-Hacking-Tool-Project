@@ -4,6 +4,8 @@ require './router.rb'
 
 def	router_init ap_probes = Array.new
 	
+	ap_probes = Array.new if ap_probes.nil?
+	
 	routers = Array.new
 	CSV.foreach("scan_out.csv") do |row|
 		

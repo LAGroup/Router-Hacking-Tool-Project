@@ -2,19 +2,20 @@
 
 class Router
 
-	attr_accessor :bssid, :beacons, :data, :channel, :power, :privacy, :essid, :id, :probes
+	attr_accessor :id, :bssid, :beacons, :data, :channel, :power, :privacy, :essid, :probes, :stations
 	
 	def initialize 
-	
-		@bssid = ""
+		
+		@id = 0			#
+		@bssid = ""		#
 		@beacons = 0
 		@data = 0
-		@channel = 0
-		@power = 0
-		@privacy = ""
-		@essid = ""	
-		@id = 0
-		@probes = ""
+		@channel = 0	#
+		@power = 0		#
+		@privacy = ""	#
+		@essid = ""		#
+		@probes = ""	#
+		@stations = Array.new	#
 	
 	end
 	

@@ -8,14 +8,12 @@ require './injection_test_parser.rb'
 require './airodump_parser.rb'
 require './router_init.rb'
 require './airodump_focus.rb'
-require './router.rb'
 require './airodump_focused_parser.rb'
+require './station_init.rb'
 require './wpa_handler.rb'
 require './wep_handler.rb'
-
-#require './station_detector.rb'
-
 #Main file
+
 system("clear")
 puts "RHT v1.2.4"
 puts 
@@ -27,7 +25,7 @@ if system("cls")
 	abort("RHT can run only on Linux BackTrack or Kali. Sorry, mate.")
 end
 
-stop_n_clean(0,0)
+stop_n_clean()
 # Stops all mons and wlans, ensuring mon0 will be free and
 # deletes trash files, that were left from previous runs
 
@@ -52,6 +50,7 @@ if supports_injection?
 	
 		puts "RHT will now send probe requests to all visible APs and"
 		puts "will bring up a list for you to chose which router to attack."
+		puts "\nNote: Better go take a drink. ^w^"
 		puts "\nPress Enter to continue..."
 		gets.chomp
 	
@@ -61,14 +60,18 @@ if supports_injection?
 	airodump_parser()
 	
 	router = airodump_focus(router_init(ap_probes))
-	# Focuses airodump on the chosen router; returns encryption
+	# Focuses airodump on the chosen router; 
+	# Returns the focused router as a Router object
+	 
+	airodump_focused_parser()
+	router = station_init(router)
 	 
 	if router.privacy =~ /WEP/
 		wep_handler(router)
 	else
-		wpa_handler(airodump_focused_parser)
-		# Runs aireplay on one of the selected router's stations,
-		# also runs aircrack on the ivs file
+		wpa_handler(router)
+		# Runs aireplay on one of the selected router's stations
+		# and aircrack on the .ivs file
 	end
 else 
 	puts

