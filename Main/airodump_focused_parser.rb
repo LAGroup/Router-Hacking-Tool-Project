@@ -6,10 +6,10 @@ require './airodump_runner.rb'
 def airodump_focused_parser 
 
 	file = File.open("focus-01.csv")
-	file.chmod( 0777 )
+	file.chmod( 0666 )
 
 	out = File.new("focus_out.csv", "w")
-	out.chmod( 0777 )
+	out.chmod( 0666 )
 	
 	station = false
 	channel_detect = false

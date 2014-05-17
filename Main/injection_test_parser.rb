@@ -47,10 +47,6 @@ def injection_test_parser interface = "wlan0"
 		monitoring_stopper(airmon_parser)
 	end
 	
-	#puts 
-	#puts routers.length
-	#puts routers
-	
 	start(interface, 0, 1)
 	puts
 		

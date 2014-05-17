@@ -4,11 +4,6 @@ require './cleaner.rb'
 
 def wep_handler r = Router.new
 	
-	if r.stations[0].nil?
-		system("clear")
-		abort("Error: No stations found\nNote: In order for this attack to work someone has to be using the router.\n")
-	end
-	
 	# Begin Loop
 	begin
 	

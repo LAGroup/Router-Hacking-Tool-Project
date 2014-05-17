@@ -2,14 +2,25 @@ require 'csv'
 require './router.rb'
 # Initializes a router object for every AP found by airodump 
 
-def	router_init ap_probes = Array.new
+def	router_init wash_list = Array.new, ap_probes = Array.new
 	
-	ap_probes = Array.new if ap_probes.nil?
+	nil_wash = false
+	nil_probes = false
+	
+	if wash_list.nil?
+		nil_wash = true
+		wash_list = Array.new
+	end
+	
+	if ap_probes.nil?
+		nil_probes = true
+		ap_probes = Array.new 
+	end
 	
 	routers = Array.new
 	CSV.foreach("scan_out.csv") do |row|
 		
-		if row[13] != nil && row[13] =~ /\S/
+		if row[13] != nil && row[13] =~ /\S/ && row[13].length > 0
 			r = Router.new
 			r.bssid = row[0]
 			r.beacons = row[9].to_i
@@ -23,10 +34,21 @@ def	router_init ap_probes = Array.new
 			end
 			r.essid = essid
 			
-			if ap_probes.length > 0
+			if !nil_probes
 				ap_probes.each do |ap|
 					r.probes = ap["probes"] if r.essid == ap["essid"]
 				end		
+			end
+			
+			if !nil_wash
+				wash_list.each do |ap|
+					if ap.wps == "No"
+						ap.wps = "Yes"
+					elsif ap.wps == "Yes"
+						ap.wps = "No"
+					end
+					r.wps = ap.wps
+				end
 			end
 			
 			routers << r

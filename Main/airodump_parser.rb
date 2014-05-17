@@ -8,10 +8,10 @@ def airodump_parser
 	airodump_runner(0)
 
 	file = File.open("scan-01.csv")
-	file.chmod( 0777 )
+	file.chmod( 0666 )
 
 	out = File.new("scan_out.csv", "w")
-	out.chmod( 0777 )
+	out.chmod( 0666 )
 	
 	File.foreach("scan-01.csv") { |line|
 		if line =~ /Station MAC/

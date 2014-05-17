@@ -9,6 +9,8 @@ def supports_injection?
 		system("clear")
 		puts "Sorry, either your wireless is disabled or"
 		puts "your wireless card does not support injection."
+		puts "This makes cracking impossible."
+		puts
 	end
 	
 	file = File.foreach("inj_test.txt") do |line| 

