@@ -6,7 +6,7 @@ Current stable version: **1.3.1**
 
 ------------------------------
 
-Version history:
+Version history:\n
   -> 1.0.0
       - basic functionality
       - WPA2 logic: handshake capture and dictionary usage
