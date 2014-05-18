@@ -28,7 +28,7 @@ def airodump_focus routers = Array.new
 		        essid_ws = space_gen(n)
 		        enc_ws = space_gen(m)
 		        sp = " " if i < 10
-		        (el.probes != "") ? (puts "#{el.id}) #{sp} #{el.essid}#{essid_ws}-->    Encryption: #{el.privacy}#{enc_ws}Power: #{el.power*(-1)}   Reaver crackable: #{el.wps}   Probes answered: #{el.probes}") : (puts "#{el.id}) #{sp} #{el.essid}#{essid_ws}-->    Encryption: #{el.privacy}#{enc_ws}Power: #{el.power*(-1)}   Reaver crackable: #{el.wps}")
+		        (el.probes != "") ? (puts "#{el.id}) #{sp} #{el.essid}#{essid_ws}-->    Encryption: #{el.privacy}#{enc_ws}Power: #{el.power*(-1)}   Reaver-crackable: #{el.wps}   Probes answered: #{el.probes}") : (puts "#{el.id}) #{sp} #{el.essid}#{essid_ws}-->    Encryption: #{el.privacy}#{enc_ws}Power: #{el.power*(-1)}   Reaver-crackable: #{el.wps}")
 		        i += 1
 		    end
 		end

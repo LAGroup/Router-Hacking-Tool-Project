@@ -33,6 +33,9 @@ stop_n_clean()
 interface = macchanger(monitoring_starter(airmon_parser, 1))
 # Offers the user to temporary change his MAC address
 
+router = Router.new
+no_stations = false
+
 system("clear")
 puts "RHT is checking if your wireless card supports injection..."
 puts
@@ -43,6 +46,16 @@ if supports_injection?
 	
 	begin
 		begin
+			
+			if no_stations
+				puts "Error: No stations found"
+				puts "Note: In order for the attack to work someone has to be using the router."
+				cleaner()
+				puts "Press Enter to continue..."
+				gets.chomp
+				system("clear")
+			end
+			
 			puts "You can now start a 'Probe Request' test which will help later"
 			puts "by telling you which routers are not a good attack target."
 			puts "This can be determined by their responce to this test."
@@ -77,14 +90,12 @@ if supports_injection?
 			airodump_focused_parser()
 			router = station_init(router)
 			no_stations = false
-			use_reaver = false
-		
+			
 			if router.stations[0].nil?
-				puts "Error: No stations found\nNote: In order for the attack to work someone has to be using the router."
 				no_stations = true
 			end
 		
-		end while no_stations
+		end while no_stations && !(router.privacy =~ /WPA/ && router.wps == "Yes")
 		 
 		if router.privacy =~ /WEP/
 			wep_handler(router)
