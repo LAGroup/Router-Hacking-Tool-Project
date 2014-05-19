@@ -1,0 +1,91 @@
+body {
+	color: white;
+	background: #2C3539 no-repeat center top; 
+	line-height: 1.5em;
+	font: bold 18px Arial, Helvetica, sans-serif;
+}
+
+a:link, a:visited, a:active { color: #FFFF99; text-decoration: none;}
+
+/*----------Title-------------*/
+
+#header { 
+	width: 720px;
+	font-size: 75px;
+	margin: 250px auto 0 auto;
+	text-align: center;
+}
+
+#title > p {margin: 0 auto;}
+
+/*----------Next and Show-------------*/
+
+#next, #show {
+	background: rgba(0,0,0,1);
+	color: white;
+	font: bold 18px Arial, Helvetica, sans-serif;
+
+	padding: 5px 0;
+	border: none;
+	border-radius: 10px; 
+}
+
+#next {
+	width: 420px;
+	margin: 20px auto 0 auto;
+	
+
+	display: block;
+}
+#next:hover {background: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.3), rgba(255,255,255,0.3));}
+#next:active {background: linear-gradient(to bottom, rgba(255,255,255,0.3), rgba(255,255,255,0.3));}
+#next:focus {outline: none;}
+
+#show {
+	width: 120px;
+	position: absolute;
+	top: 20px;
+	right: 20px;
+}
+#show:hover {background: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.3), rgba(255,255,255,0.3));}
+#show:active {background: linear-gradient(to bottom, rgba(255,255,255,0.3), rgba(255,255,255,0.3));}
+#show:focus {outline: none;}
+
+/*----------Divs-------------*/
+
+#div1, #div2, #div3, #div4, #div5, #div6, #div7, #div8, #div9, #div10, #div11 {
+	padding: 12px 0;
+}
+
+#div1 { position: absolute; left: 200px; top: 70px;}
+#div3 { position: absolute; left: 840px; top: 70px;}
+
+#div2 { position: absolute; left: 200px; top: 200px;}
+#div4 { position: absolute; left: 1080px; top: 200px;}
+
+#div5 { position: absolute; left: 200px; top: 350px;}
+#div6 { position: absolute; left: 1280px; top: 350px;}
+
+#div8 { position: absolute; left: 200px; top: 500px;}
+#div7 { position: absolute; left: 680px; top: 530px;}
+#div10 { position: absolute; left: 1280px; top: 500px;}
+
+#div9 { position: absolute; left: 570px; top: 680px;} /* download */
+
+
+body > div > p {
+	margin: 20px auto;
+	padding: 10px;
+	border: 2px orange solid;
+	border-radius: 20px;
+	color: white;
+	font-size: 20px;
+}
+
+body > div > p:hover {
+	color: orange;
+	border-color: white;
+
+} 
+
+#credits { position: absolute; right: 25px; top: 65px;}

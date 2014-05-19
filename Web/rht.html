@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="rht_style.css" media="screen">
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script src="http://code.jquery.com/ui/1.9.0/jquery-ui.js"></script>
+	<title> Router-Hacking-Tool </title>
+</head>
+
+<body>
+
+	<div id="header">
+		<div id="title"> <p>RHT v1.3.1</p> </div>
+		<button id="next"> Next </button>
+	</div>
+	
+	<button id="show"> Show All </button>
+
+	<div id="div1">
+		<p>
+			Welcome, to RHT&#39s official webpage!<br>
+		</p>
+	</div>
+
+	<div id="div2">
+		<p>
+			RHT is a tool for cracking router <br>passwords in Linux Kali and Backtrack.<br>
+		</p>
+	</div>
+
+	<div id="div3">
+		<p>
+			To use RHT on a desktop computer you'll need a <a href="https://www.google.bg/search?q=wireless+network+adapter&es_sm=122&tbm=isch&tbo=u&source=univ&sa=X&ei=JXZ5U6qxGYaPOJzUgYAE&ved=0CDoQsAQ&biw=1920&bih=955">Wireless Network Adapter (WNA)</a>.<br>
+		</p>
+	</div>
+
+	<div id="div4">
+		<p>
+			Laptops have a built-in wireless card that will do the trick.
+		</p>
+	</div>
+
+	<div id="div5">
+		<p>
+			Still the usage of WNA helps <u>a lot</u> for the succession of RHT's work.
+		</p>
+	</div>
+
+	<div id="div6">
+		<p>
+			Another thing you will need is Ruby,<br> the programmer's best friend.
+		</p>
+	</div>
+
+	<div id="div7">
+		<p>
+			Go to <a href="https://www.ruby-lang.org/en/installation/">Ruby&#39s website</a>, 
+			download and install Ruby.
+		</p>
+	</div>
+
+	<div id="div8">
+		<p>
+			Kali comes with built-in Ruby 1.9.3, <br>
+			but it's not fully reliable.<br> 
+			<br>
+			We suggest installing a new one.
+		</p>
+	</div>
+
+	<div id="div9">
+		<p>
+			You can get RHT by <a href="./Router-Hacking-Tool-Project.zip">downloading the zip</a>
+			or by cloning the
+			<a href="https://github.com/LAGroup/Router-Hacking-Tool-Project">RHT repository</a>.
+		</p>
+	</div>
+
+	<div id="div10">
+		<p>
+			Check the <a href="./Router-Hacking-Tool-Project.zip">repository wiki</a><br>
+			 for more detailed information about <br>
+			 installation and starting of <a href="charleston.zapto.org/RHT/rht.html">RHT</a>.
+		</p>
+	</div>
+	
+	<div id="credits"> 
+		Created by <br>
+		&nbsp &nbsp &nbsp <a href="https://github.com/LAGroup">LAG</a>
+	</div>
+
+	<script type="text/javascript">
+		/*
+		$("#header").hide();
+		*/
+		$('#div1').hide();
+		$('#div2').hide();
+		$('#div3').hide();
+		$('#div4').hide();
+		$('#div5').hide();
+		$('#div6').hide();
+		$('#div7').hide();
+		$('#div8').hide();
+		$('#div9').hide();
+		$('#div10').hide();
+//		*/
+		var i = 0
+
+		$('#next').click(function() {
+			switch (i) {
+				case 0:
+					i++;
+					$("#header").animate({fontSize:'24px'}, 500);
+					$("#header").animate({width:'150px'}, 500);
+				
+					$("#header").animate({margin:'10px auto 0 auto'}, 500);
+					$("#header").animate({margin:'10px 0 0 10px'}, 500);
+
+					$("#next").animate({width:'150px'}, 500);
+					$("#next").animate({fontSize:'14px'}, 500);
+					$("#next").animate({margin:'0px'}, 500);
+					break;
+				case 1:
+					i++;
+					$('#div1').fadeToggle();
+					break;
+				case 2:
+					i++;
+					$('#div2').fadeToggle();
+					break;
+				case 3:
+					i++;
+					$('#div3').fadeToggle();
+					break;
+				case 4:
+					i++;
+					$('#div4').fadeToggle();
+					break;
+				case 5:
+					i++;
+					$('#div5').fadeToggle();
+					break;
+				case 6:
+					i++;
+					$('#div6').fadeToggle();
+					break;
+				case 7:
+					i++;
+					$('#div7').fadeToggle();
+					break;
+				case 8:
+					i++;
+					$('#div8').fadeToggle();
+					break;
+				case 9:
+					i++;
+					$('#div9').fadeToggle();
+					break;
+				case 10:
+					i++;
+					$('#div10').fadeToggle();
+					break;
+				case 11:
+					i++;
+					$('#credits').fadeToggle();
+					break;
+			}
+		});
+
+		$('#show').click(function() {
+			$("#header").animate({fontSize:'24px'}, 500);
+			$("#header").animate({width:'130px'}, 500);
+		
+			$("#header").animate({margin:'10px auto 0 auto'}, 500);
+			$("#header").animate({margin:'10px 0 0 10px'}, 500);
+
+			$("#next").animate({width:'130px'}, 500);
+			//$("#next").animate({fontSize:'14px'}, 500);
+			$("#next").animate({margin:'0px'}, 500);
+
+			setTimeout(function(){
+				$('#div1').fadeToggle();
+				$('#div2').fadeToggle();
+				$('#div3').fadeToggle();
+				$('#div4').fadeToggle();
+				$('#div5').fadeToggle();
+				$('#div6').fadeToggle();
+				$('#div7').fadeToggle();
+				$('#div8').fadeToggle();
+				$('#div9').fadeToggle();
+				$('#div10').fadeToggle();
+			},1500);
+		});
+
+
+	</script>
+</body>
+</html>
