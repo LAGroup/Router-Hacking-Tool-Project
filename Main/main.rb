@@ -16,7 +16,7 @@ require './wep_handler.rb'
 #Main file
 
 system("clear")
-puts "RHT v1.3.0;" 
+puts "RHT v1.3.1;" 
 puts "Welcome to Router Hacking Tool!"
 puts 
 puts "Please make sure that your wireless is enabled!"
