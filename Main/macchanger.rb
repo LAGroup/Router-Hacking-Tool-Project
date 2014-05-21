@@ -1,5 +1,5 @@
-require './mac_parser.rb'
 # Changes the MAC address temporary
+
 def macchanger wlan = "wlan0"
 	
 	changed_mac = false
