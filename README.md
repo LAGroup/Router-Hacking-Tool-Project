@@ -42,4 +42,4 @@ Who are the [LAG](https://github.com/LAGroup):
   Alexander Apostolov aka [**CharlieScarver**](https://github.com/CharlieScarver)   &   Luboslav Ivanov aka [**killer18ys**](https://github.com/killer18ys)
 
 
-LAGroup First Commit: **17:32 23/02/2014**
+LAG First Commit: **17:32 23/02/2014**
