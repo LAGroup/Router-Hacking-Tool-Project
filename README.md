@@ -1,6 +1,6 @@
 Router-Hacking-Tool: RHT
 ===========================
-Created by **LAG**
+Created by [**LAG**](https://github.com/LAGroup)
 
 Current stable version: **1.3.1**
 
@@ -38,8 +38,8 @@ Version history:
 
 ------------------------------
 
-Who are the LAG:
-  Alexander Apostolov aka **CharlieScarver**   &   Luboslav Ivanov aka **killer18ys**
+Who are the [LAG](https://github.com/LAGroup):
+  Alexander Apostolov aka [**CharlieScarver**](https://github.com/CharlieScarver)   &   Luboslav Ivanov aka [**killer18ys**](https://github.com/killer18ys)
 
 
 LAGroup First Commit: **17:32 23/02/2014**
