@@ -77,9 +77,11 @@ if supports_injection?
 			end
 			
 			system("clear")
-			puts "\nRHT will scan all visible APs to see "
+			puts "\nRHT will now scan all visible APs to see "
 			puts "which of them are Reaver-crackable."
 			puts
+			puts "Press Enter to continue..."
+			gets.chomp
 			
 			wash_list = wash_parser
 			airodump_parser()
